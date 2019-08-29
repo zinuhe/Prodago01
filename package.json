@@ -7,7 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:client-and-server-bundles-i18n": "ng run i18n-demo:build:production-es ; ng run i18n-demo:build:production-en ; ng run i18n-demo:server:production",
+    "build:client-and-server-bundles": "ng build --prod ; ng run i18n-demo:server:production",
+    "build:ssr": "npm run build:client-and-server-bundles ; npm run compile:server",
+    "build:i18n-ssr": "npm run build:client-and-server-bundles-i18n ; npm run compile:server",
+    "compile:server": "tsc -p server.tsconfig.json",
+    "serve:ssr": "node dist/server"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +25,13 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "@fortawesome/angular-fontawesome": "^0.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.0",
+    "angular-fontawesome": "^1.0.0",
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
